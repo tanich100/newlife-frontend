@@ -13,6 +13,7 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 236, 217, 79),
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
