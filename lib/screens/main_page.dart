@@ -16,7 +16,9 @@ class MainPage extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(child: SearchBar()),
+            Expanded(
+              child: SearchBar(),
+            ),
             CameraButton(),
             FavoritesButton(),
           ],
@@ -26,7 +28,7 @@ class MainPage extends StatelessWidget {
       body: Column(
         children: [
           RecommendedPets(),
-          Expanded(child: NewArrivals()),
+          NewArrivals(),
           CategorySelector(),
         ],
       ),
