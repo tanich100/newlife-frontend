@@ -1,3 +1,4 @@
+// lib/screens/main_page.dart
 import 'package:flutter/material.dart';
 import '../widgets/camera_button.dart';
 import '../widgets/category_selector.dart';
@@ -5,7 +6,7 @@ import '../widgets/favorites_button.dart';
 import '../widgets/filter_dropdown.dart';
 import '../widgets/new_arrivals.dart';
 import '../widgets/recommended_pets.dart';
-import '../widgets/custom_bottom_nav_bar.dart'; // Import the new widget
+import '../widgets/custom_bottom_nav_bar.dart';
 
 class MainPage extends StatelessWidget {
   @override
@@ -29,8 +30,7 @@ class MainPage extends StatelessWidget {
           CategorySelector(),
         ],
       ),
-      bottomNavigationBar:
-          CustomBottomNavBar(), // Use the custom BottomNavigationBar
+      bottomNavigationBar: CustomBottomNavBar(),
     );
   }
 }
