@@ -14,7 +14,6 @@ class MyApp extends StatelessWidget {
       title: 'Pet Adoption App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        
       ),
       debugShowCheckedModeBanner: false,
       initialRoute: '/main',

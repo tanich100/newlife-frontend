@@ -1,6 +1,5 @@
 // lib/widgets/custom_bottom_nav_bar.dart
 import 'package:flutter/material.dart';
-
 import '../screens/donate_page.dart';
 import '../screens/main_page.dart';
 import '../screens/notifications_page.dart';
@@ -18,8 +17,6 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
     setState(() {
       _selectedIndex = index;
     });
-
-    // Add navigation logic here
     switch (index) {
       case 0:
         Navigator.pushNamedAndRemoveUntil(
@@ -44,29 +41,28 @@ class _CustomBottomNavBarState extends State<CustomBottomNavBar> {
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
-          backgroundColor: Colors.yellow,
+          backgroundColor: const Color.fromARGB(255, 236, 217, 79),
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
+          icon: Icon(Icons.attach_money),
           label: 'Donate',
-          backgroundColor: Colors.yellow,
+          backgroundColor: const Color.fromARGB(255, 236, 217, 79),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.notifications),
           label: 'Notifications',
-          backgroundColor: Colors.yellow,
+          backgroundColor: const Color.fromARGB(255, 236, 217, 79),
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.person),
           label: 'Profile',
-          backgroundColor: Colors.yellow,
+          backgroundColor: const Color.fromARGB(255, 236, 217, 79),
         ),
       ],
       currentIndex: _selectedIndex,
-      selectedItemColor: Colors.white, // Color for selected item
-      unselectedItemColor: Colors.white, // Color for unselected items
-      backgroundColor:
-          Colors.yellow, // Background color of the BottomNavigationBar
+      selectedItemColor: Colors.white,
+      unselectedItemColor: Colors.white,
+      backgroundColor: const Color.fromARGB(255, 236, 217, 79),
       onTap: _onItemTapped,
     );
   }

@@ -1,64 +1,61 @@
 import 'package:flutter/material.dart';
 import '../models/pet.dart';
 import '../screens/detail_page.dart';
-import '../data/pets_data.dart'; // Ensure correct import
+import '../data/pets_data.dart';
 
 class NewArrivals extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
+    final newPets = pets.where((pet) => pet.tag == 'New Arrival').toList();
+
+    // ใช้ MediaQuery เพื่อคำนวณขนาดที่เหมาะสม
+    final screenWidth = MediaQuery.of(context).size.width;
+    final containerPadding = screenWidth * 0.05; // 5% ของความกว้างหน้าจอ
+    final cardWidth = screenWidth * 0.32; // 35% ของความกว้างหน้าจอ
+    final separatorWidth = screenWidth * 0.01;
+    return Container(
+      height: 100,
+      padding: EdgeInsets.symmetric(horizontal: containerPadding),
+      child: ListView.separated(
         scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: pets.map((pet) {
-            return GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DetailPage(pet: pet),
-                  ),
-                );
-              },
-              child: SizedBox(
-                width: 200, // Adjust width to make the card smaller
-                height: 220, // Adjust height to make the card smaller
-                child: Card(
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment
-                        .center, // Center the content vertically
-                    mainAxisSize: MainAxisSize
-                        .min, // Make the Column as small as possible
-                    children: [
-                      Container(
-                        height: 120, // Adjust height to fit the card
-                        width: double.infinity,
-                        child: Image.network(
-                          pet.imageUrl,
-                          fit: BoxFit.cover,
-                        ),
+        itemCount: newPets.length,
+        separatorBuilder: (context, index) => SizedBox(width: separatorWidth),
+        itemBuilder: (context, index) {
+          final pet = newPets[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailPage(pet: pet),
+                ),
+              );
+            },
+            child: SizedBox(
+              width: cardWidth, // ปรับขนาดของการ์ด
+              child: Card(
+                margin: EdgeInsets.symmetric(horizontal: 8.0), // ลด Margin
+                child: Column(
+                  children: [
+                    Image.network(
+                      pet.imageUrl,
+                      height: 120, // ปรับขนาดของภาพให้เล็กลง
+                      width: double.infinity,
+                      fit: BoxFit.cover,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        pet.name,
+                        textAlign: TextAlign.center,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          pet.name,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: const Color.fromARGB(255, 16, 16,
-                                16), // Adjust text color for better contrast
-                          ),
-                          textAlign: TextAlign.center, // Center align the text
-                        ),
-                      ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            );
-          }).toList(),
-        ),
+            ),
+          );
+        },
       ),
     );
   }

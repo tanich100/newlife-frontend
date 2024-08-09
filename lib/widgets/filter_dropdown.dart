@@ -4,9 +4,7 @@ class FilterDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton<String>(
-      onSelected: (value) {
-        // Handle filter options
-      },
+      onSelected: (value) {},
       itemBuilder: (BuildContext context) {
         return ['All', 'Dogs', 'Cats', 'Lost Pets', 'Special Care']
             .map((String choice) {

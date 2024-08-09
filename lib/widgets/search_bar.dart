@@ -1,3 +1,4 @@
+// lib/widgets/search_bar.dart
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatelessWidget {
@@ -10,6 +11,8 @@ class SearchBar extends StatelessWidget {
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10.0),
         ),
+        filled: true,
+        fillColor: Colors.yellow[100],
       ),
     );
   }

@@ -3,7 +3,8 @@ class Pet {
   final String name;
   final String imageUrl;
   final String category;
-  final String description; // Added description for detail page
+  final String description;
+  final String tag;
 
   Pet({
     required this.id,
@@ -11,5 +12,6 @@ class Pet {
     required this.imageUrl,
     required this.category,
     required this.description,
+    required this.tag,
   });
 }
