@@ -5,6 +5,7 @@ class Pet {
   final String category;
   final String description;
   final String tag;
+  final String status;
 
   Pet({
     required this.id,
@@ -13,5 +14,6 @@ class Pet {
     required this.category,
     required this.description,
     required this.tag,
+    required this.status,
   });
 }
